@@ -10,15 +10,20 @@ A beginner-friendly command-line tool to scan API endpoints and identify common 
 🧵 Fast parallel execution using ThreadPoolExecutor
 📦 Installation
 Clone this repository:
-git clone https://github.com/your-username/api-security-scanner.git
+```
+git clone [https://github.com/your-username/api-security-scanner.git](https://github.com/vr8010/API-Security-Scanner-Python-)
 cd api-security-scanner
+```
 Install dependencies:
+```
 pip install -r requirements.txt
+```
 ▶️ Usage
 
 Run the scanner:
-
+```
 python api_scanner.py
+```
 Input Prompts
 
 Enter API base URL
