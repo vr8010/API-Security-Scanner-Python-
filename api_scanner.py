@@ -118,8 +118,7 @@ def main():
     endpoints_input = input("Enter endpoints (comma separated): ").strip()
     if not endpoints_input:
         print("Error: At least one endpoint is required")
-        return
-    
+        return 
     # Parse endpoints
     endpoints = [e.strip() for e in endpoints_input.split(',')]
     endpoints = [e if e.startswith('/') else f'/{e}' for e in endpoints]
