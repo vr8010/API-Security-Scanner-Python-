@@ -2,7 +2,6 @@
 """
 API Security Scanner - A CLI tool for basic API security testing
 """
-
 import requests
 import json
 import time
@@ -133,3 +132,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
