@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urljoin
 
 # Security headers to check
+
 SECURITY_HEADERS = [
     'Content-Security-Policy',
     'X-Frame-Options',
@@ -40,10 +41,12 @@ class APIScanner:
             result['status_code'] = response.status_code
             
             # Check authentication requirement
+            
             if response.status_code in [401, 403]:
                 result['auth_required'] = True
             
             # Check security headers
+            
             for header in SECURITY_HEADERS:
                 if header in response.headers:
                     result['present_headers'].append(header)
@@ -51,6 +54,7 @@ class APIScanner:
                     result['missing_headers'].append(header)
             
             # Detect warnings
+            
             if response.status_code == 200 and not result['auth_required']:
                 if 'admin' in endpoint.lower() or 'config' in endpoint.lower():
                     result['warnings'].append('Sensitive endpoint publicly accessible')
@@ -109,6 +113,7 @@ def main():
     print("=== API Security Scanner ===\n")
     
     # Get user input
+    
     base_url = input("Enter API base URL: ").strip()
     if not base_url:
         print("Error: Base URL is required")
@@ -119,10 +124,12 @@ def main():
         print("Error: At least one endpoint is required")
         return 
     # Parse endpoints
+    
     endpoints = [e.strip() for e in endpoints_input.split(',')]
     endpoints = [e if e.startswith('/') else f'/{e}' for e in endpoints]
     
     # Create scanner and run
+
     scanner = APIScanner(base_url)
     start_time = time.time()
     scanner.scan_endpoints(endpoints)
